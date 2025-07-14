@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "name": "A-1",
+    "maxCapability": 10
+  },
+  {
+    "id": 1,
+    "name": "A-2",
+    "maxCapability": 10
+  },
+  {
+    "id": 2,
+    "name": "B-1",
+    "maxCapability": 5
+  },
+  {
+    "id": 3,
+    "name": "B-2",
+    "maxCapability": 5
+  }
+]
