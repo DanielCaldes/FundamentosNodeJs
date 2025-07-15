@@ -13,7 +13,7 @@ const routesBySection = {
 export const helpRoutes = [
     {
         method: "GET",
-        path: "/help",
+        path: BASE_PATH,
         controller: (req, res) => {
             const sections = Object.keys(routesBySection).map(section => ({
             section,
@@ -25,7 +25,7 @@ export const helpRoutes = [
     },
     {
         method: "GET",
-        path: "/help/:section",
+        path: `${BASE_PATH}/:section`,
         controller: (req, res, params) => {
             const { section } = params;
             const routes = routesBySection[section];
