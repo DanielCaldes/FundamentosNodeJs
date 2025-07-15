@@ -4,6 +4,8 @@ const url = `http://localhost:${PORT}/reservations`;
 
 const body = {
   roomId: 1,
+  username: "Daniel",
+  peopleCount: 5,
   startDate: "2025-07-14T10:00:00Z",
   endDate: "2025-07-14T12:00:00Z"
 };
