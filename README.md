@@ -1,5 +1,5 @@
 
-# FundamentosNodeJs
+# Fundamentos NodeJs
 
 Este proyecto es parte del módulo de **Fundamentos de Backend con Node.js** del Máster en Desarrollo Web. Se ha desarrollado una aplicación sencilla de gestión de **salas y reservas** utilizando **Node.js** sin frameworks, con almacenamiento en archivos **JSON**, un sistema de rutas personalizado y manejo básico de concurrencia.
 
@@ -71,30 +71,29 @@ FundamentosNodeJs/
 ```
 
 ## Endpoints principales
+**Nota**: Todos los endpoint están recodigos bajo ``/api``
 
-### Salas (`/room`)
+### Salas
 
 #### 1. Listar salas
 
 - **Método**: GET  
   ```url
-  /room
+  api/rooms
   ```
 - **Descripción**: Devuelve una lista de todas las salas disponibles.
 - **Respuesta**:
   ```json
   [
     {
-      "id": "room1",
-      "name": "Sala Principal",
-      "capacity": 20,
-      "location": "Planta 1"
+      "id": 0,
+      "name": "A-1",
+      "capacity": 10
     },
     {
-      "id": "room2",
-      "name": "Sala Reuniones",
-      "capacity": 10,
-      "location": "Planta 2"
+      "id": 1,
+      "name": "A-2",
+      "capacity": 10
     }
   ]
   ```
@@ -103,28 +102,27 @@ FundamentosNodeJs/
 
 - **Método**: GET  
   ```url
-  /room/:id
+  api/rooms/:id
   ```
 - **Descripción**: Devuelve la información de una sala específica por su ID.
 - **Respuesta**:
   ```json
   {
-    "id": "room1",
-    "name": "Sala Principal",
-    "capacity": 20,
-    "location": "Planta 1"
+    "id": 0,
+    "name": "A-1",
+    "capacity": 10
   }
   ```
 
 ---
 
-### Reservas (`/reservation`)
+### Reservas
 
 #### 1. Listar reservas
 
 - **Método**: GET  
   ```url
-  /reservation
+  /api/reservations
   ```
 - **Descripción**: Devuelve una lista de reservas existentes.  
   ⚠️ Actualmente devuelve `"Not implemented"` ya que la funcionalidad no está desarrollada aún.
@@ -140,13 +138,13 @@ FundamentosNodeJs/
 
 - **Método**: POST  
   ```url
-  /reservation
+  /api/reservations
   ```
 - **Descripción**: Crea una nueva reserva para una sala durante un intervalo de tiempo.
 - **Cuerpo de la solicitud** (JSON):
   ```json
   {
-    "roomId": "room1",
+    "roomId": 0,
     "username": "Daniel",
     "peopleCount": 5,
     "startDate": "2025-07-20T10:00:00.000Z",
@@ -156,8 +154,11 @@ FundamentosNodeJs/
 - **Respuesta**:
   ```json
   {
-    "id": "reservation_abc123",
-    "message": "Reserva creada correctamente"
+    "id": 2,
+    "roomId": 0,
+    "username": "Daniel",
+    "startDate": "2025-07-21T10:00:00.000Z",
+    "endDate": "2025-07-21T12:00:00.000Z"
   }
   ```
 
@@ -165,13 +166,13 @@ FundamentosNodeJs/
 
 - **Método**: DELETE  
   ```url
-  /reservation/:id
+  /api/reservations/:id
   ```
 - **Descripción**: Elimina una reserva existente según su ID.
 - **Respuesta**:
   ```json
   {
-    "message": "Reserva con id reservation_abc123 eliminada correctamente"
+    "message": "Reserva 2 de 2025-07-21T10:00:00.000Z a 2025-07-21T12:00:00.000Z anulada con éxito"
   }
   ```
 
@@ -181,7 +182,7 @@ FundamentosNodeJs/
 
 - **Método**: GET  
   ```url
-  /help
+  /api/help
   ```
 - **Descripción**: Devuelve una lista de secciones disponibles para las que se puede consultar ayuda.
 - **Respuesta**:
@@ -202,7 +203,7 @@ FundamentosNodeJs/
 
 - **Método**: GET  
   ```url
-  /help/:section
+  /api/help/:section
   ```
 - **Descripción**: Devuelve información detallada sobre los endpoints disponibles dentro de una sección específica (`rooms` o `reservations`).
 - **Respuesta**:
@@ -235,11 +236,6 @@ El acceso a los ficheros JSON está protegido por un sistema de **mutex** que ga
 
 Un script de prueba ubicado en `scripts/race-condition-test.js` permite lanzar dos peticiones paralelas para verificar el correcto funcionamiento de la exclusión mutua.
 
-## Observaciones
-
-- Sistema de rutas inspirado en Django.
-- Ficheros JSON adecuados solo para proyectos pequeños o educativos.
-- Proyecto fácilmente escalable hacia soluciones más robustas.
 
 ## Licencia
 
