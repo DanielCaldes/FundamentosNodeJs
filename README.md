@@ -3,11 +3,6 @@
 
 Este proyecto es parte del módulo de **Fundamentos de Backend con Node.js** del Máster en Desarrollo Web. Se ha desarrollado una aplicación sencilla de gestión de **salas y reservas** utilizando **Node.js** sin frameworks, con almacenamiento en archivos **JSON**, un sistema de rutas personalizado y manejo básico de concurrencia.
 
-GitHub del proyecto:  
-```url
-https://github.com/DanielCaldes/FundamentosNodeJs
-```
-
 ## Características
 
 - **Servidor HTTP** implementado manualmente con el módulo `http` de Node.js.
