@@ -71,7 +71,6 @@ FundamentosNodeJs/
 ```
 
 ## Endpoints principales
-**Nota**: Todos los endpoint están recodigos bajo ``/api``
 
 ### Salas
 
