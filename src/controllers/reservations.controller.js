@@ -33,7 +33,7 @@ function getNextReservationId(reservations) {
 export async function postReservation(req, res, params){
     const {roomId, username, peopleCount, startDate, endDate} = await parseBody(req) || {};
 
-    if(!roomId) {
+    if(roomId === null || roomId === undefined) {
         return send(res, 400, { error: "El parámetro 'roomId' es obligatorio" });
     }
     if(!username) {
@@ -100,7 +100,7 @@ export async function postReservation(req, res, params){
 
 export async function deleteReservation(req, res, params){
     const {id} = params;
-    if (!id) {
+    if (id === null || id === undefined) {
         return send(res, 400, { error: "Mande el parámetro id en la url" });
     }
 

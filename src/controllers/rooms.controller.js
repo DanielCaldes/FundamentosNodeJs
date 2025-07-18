@@ -18,7 +18,7 @@ export async function getRooms(req, res, params){
 
 export async function getRoomById(req, res, params){
     const {id} = params;
-    if (!id) { return send(res, 400, { error: "Mande el parámetro id en la url" }); }
+    if (id === null || id === undefined) { return send(res, 400, { error: "Mande el parámetro id en la url" }); }
 
     try{
         const rooms = await getRoomsFromJson();
