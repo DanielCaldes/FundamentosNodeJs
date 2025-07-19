@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import { PORT } from '../src/config.js';
-const url = `http://localhost:${PORT}/reservations`;
+const url = `http://localhost:${PORT}/api/reservations`;
 
 const body = {
   roomId: 1,
